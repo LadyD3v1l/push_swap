@@ -33,16 +33,6 @@ int	ft_check_arg(char *str)
 	return (1);
 }
 
-/*int		ft_check_list(t_list **stack)
-{
-	int		i;
-	int		j;
-	t_list	*node;
-
-	i = ft_lstsize(stack);
-	while()
-}*/
-
 void	ft_arg_int(t_list **stack, char *arg)
 {
 	t_list	*node;
@@ -59,7 +49,7 @@ void	ft_arg_int(t_list **stack, char *arg)
 		{
 			ft_lstclear(stack);
 			write(2, "Error\n", 6);
-			exit ;
+			exit(EXIT_FAILURE);
 		}
 		node = ft_lstnew(num);
 		ft_lstadd_back(stack, node);

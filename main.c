@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-/*void	print_list(t_list *lst)
+void	print_list(t_list *lst)
 {
 	while (lst)
 	{
 		printf("%i\n", lst->content);
 		lst = lst->next;
 	}
-}*/
+}
 
 int	main(int ac, char **av)
 {
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 		{
 			ft_lstclear(&a);
 			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
