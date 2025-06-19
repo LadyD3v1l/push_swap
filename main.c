@@ -26,7 +26,6 @@ int	main(int ac, char **av)
 	int		i;
 	t_list	*a;
 	t_list	*b;
-	int		*check;
 
 	i = 1;
 	a = NULL;
@@ -39,26 +38,22 @@ int	main(int ac, char **av)
 			ft_finish(&a);
 		i++;
 	}
-	check = ft_list_array(a);
-	if (ft_check_iden(check) == 0)
-		ft_finish(&a);
-	if (ft_check_sorted(check) == 0)
+	if (ft_check_list(a) != 2)
 		ft_finish(&a);
 	print_list(a);
 	return (0);
 }
 
-/*int	ft_check_list(t_list *lst)
+int	ft_check_list(t_list *lst)
 {
 	int		*lst_arg;
+	int		i;
 
+	i = 0;
 	lst_arg = ft_list_array(lst);
-	if (ft_check_iden(lst_arg) == 1)
-		return (1);
-	else
-		return (0);
-	if (ft_check_sorted(lst_arg) == 1)
-		return();
-	else
-		return(0);
-}*/
+	if (ft_check_sorted(lst_arg, lst) == 1)
+		i = i + 1;
+	if (ft_check_iden(lst_arg, lst) == 1)
+		i = i + 1;
+	return (i);
+}

@@ -67,7 +67,7 @@ int	*ft_list_array(t_list *list)
 	aux = list;
 	array = malloc(sizeof(int) * ft_lstsize(list));
 	if (!array)
-		return NULL;
+		return (NULL);
 	while (aux)
 	{
 		array[i] = aux->content;
@@ -77,16 +77,18 @@ int	*ft_list_array(t_list *list)
 	return (array);
 }
 
-int	ft_check_iden(int *array)
+int	ft_check_iden(int *array, t_list *lst)
 {
 	int		i;
 	int		j;
+	int		size;
 
 	i = 0;
-	while (array[i])
+	size = ft_lstsize(lst);
+	while (i < size)
 	{
 		j = i + 1;
-		while (array[j])
+		while (j < size)
 		{
 			if (array[i] == array[j])
 				return (0);
@@ -97,22 +99,18 @@ int	ft_check_iden(int *array)
 	return (1);
 }
 
-int	ft_check_sorted(int *array)
+int	ft_check_sorted(int *array, t_list *lst)
 {
 	int		i;
-	int		j;
+	int		size;
 
 	i = 0;
-	while (array[i])
+	size = ft_lstsize(lst);
+	while (i < size - 1)
 	{
-		j = i + 1;
-		while (array[j])
-		{
-			if (array[i] > array[j])
-				return (0);
-			j++;
-		}
+		if (array[i] > array[i + 1])
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
