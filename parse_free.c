@@ -32,3 +32,10 @@ void	ft_free_array(char **result, int i)
 		free(result[--i]);
 	free(result);
 }
+
+void	ft_finish(t_list **list)
+{
+	ft_lstclear(list);
+	write (2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}

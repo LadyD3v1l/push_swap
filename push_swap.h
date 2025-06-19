@@ -34,11 +34,16 @@ int		ft_lstsize(t_list *lst);
 //parse_check.c
 int		ft_check_arg(char *str);
 void	ft_arg_int(t_list **stack, char *arg);
+int		*ft_list_array(t_list *list);
+int		ft_check_iden(int *array);
+int		ft_check_sorted(int *array);
 
 //parse_free.c
 void	ft_free_array(char **result, int i);
 void	ft_lstclear(t_list **lst);
+void	ft_finish(t_list **list);
 
 //main.c
+int		ft_check_list(t_list *lst);
 
 #endif

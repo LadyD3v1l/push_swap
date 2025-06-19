@@ -56,3 +56,63 @@ void	ft_arg_int(t_list **stack, char *arg)
 	}
 	ft_free_array(array, i);
 }
+
+int	*ft_list_array(t_list *list)
+{
+	t_list	*aux;
+	int		*array;
+	int		i;
+
+	i = 0;
+	aux = list;
+	array = malloc(sizeof(int) * ft_lstsize(list));
+	if (!array)
+		return NULL;
+	while (aux)
+	{
+		array[i] = aux->content;
+		aux = aux->next;
+		i++;
+	}
+	return (array);
+}
+
+int	ft_check_iden(int *array)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (array[i])
+	{
+		j = i + 1;
+		while (array[j])
+		{
+			if (array[i] == array[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check_sorted(int *array)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (array[i])
+	{
+		j = i + 1;
+		while (array[j])
+		{
+			if (array[i] > array[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
