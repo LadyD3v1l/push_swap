@@ -22,7 +22,6 @@ void	ft_lstclear(t_list **lst)
 	{
 		aux = *lst;
 		*lst = (*lst)->next;
-		free(aux->content);
 		free(aux);
 	}
 }
@@ -31,7 +30,6 @@ void	ft_lstdelone(t_list *lst)
 {
 	if (!lst)
 		return ;
-	free(lst->content);
 	free(lst);
 }
 

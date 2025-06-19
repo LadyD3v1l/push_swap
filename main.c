@@ -24,31 +24,21 @@ void print_list(t_list *lst)
 int	main(int ac, char **av)
 {
 	int		i;
-	int		j;
-	char	**array;
 	t_list	*a;
-	t_list	*node;
 
 	i = 1;
 	a = NULL;
 	while(i < ac)
 	{
 		if(ft_check_arg(av[i]))
-		{
-			j = 0;
-			array = ft_split(av[i], ' ');
-			while(array[j])
-			{
-				node = ft_lstnew(ft_atoi(array[j++]));
-				ft_lstadd_back(&a, node);
-			}
-			ft_free_array(array, j);
-		}
+			ft_arg_int(&a, av[i]);
 		else
+		{
+			ft_lstclear(&a);
 			write(2, "Error\n", 6);
+		}
 		i++;
 	}
 	print_list(a);
 	return (0);
 }
- 

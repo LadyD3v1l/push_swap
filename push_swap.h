@@ -31,6 +31,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 
 //parse_check.c
 int		ft_check_arg(char *str);
+void	ft_arg_int(t_list **stack, char *arg);
 
 //parse_free.c
 void	ft_free_array(char **result, int i);

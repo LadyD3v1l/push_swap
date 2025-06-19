@@ -32,3 +32,20 @@ int		ft_check_arg(char *str)
 	}
 	return (1);
 }
+
+void	ft_arg_int(t_list **stack, char *arg)
+{
+	t_list	*node;
+	int		i;
+	char	**array;
+
+	array = ft_split(arg, ' ');
+	i = 0;
+	while(array[i])
+	{
+		node = ft_lstnew(ft_atoi(array[i++]));
+		ft_lstadd_back(stack, node);
+	}
+	ft_free_array(array, i);
+}
+
