@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int		i;
-	int		num;
-	int		sig;
+	int			i;
+	long		num;
+	int			sig;
 
 	i = 0;
 	num = 0;
@@ -64,4 +64,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = new;
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		i;
+	t_list	*temp;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	temp = lst;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (i);
 }

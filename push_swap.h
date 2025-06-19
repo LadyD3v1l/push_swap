@@ -13,9 +13,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -25,9 +26,10 @@ typedef struct s_list
 
 //ft_libft.c e ft_libft2.c
 char	**ft_split(char const *str, char c);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
 
 //parse_check.c
 int		ft_check_arg(char *str);
@@ -35,10 +37,8 @@ void	ft_arg_int(t_list **stack, char *arg);
 
 //parse_free.c
 void	ft_free_array(char **result, int i);
-void	ft_lstdelone(t_list *lst);
 void	ft_lstclear(t_list **lst);
 
 //main.c
-
 
 #endif

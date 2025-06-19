@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void print_list(t_list *lst)
+/*void	print_list(t_list *lst)
 {
-	while(lst)
+	while (lst)
 	{
 		printf("%i\n", lst->content);
 		lst = lst->next;
 	}
-}
+}*/
 
 int	main(int ac, char **av)
 {
@@ -28,9 +28,9 @@ int	main(int ac, char **av)
 
 	i = 1;
 	a = NULL;
-	while(i < ac)
+	while (i < ac)
 	{
-		if(ft_check_arg(av[i]))
+		if (ft_check_arg(av[i]))
 			ft_arg_int(&a, av[i]);
 		else
 		{

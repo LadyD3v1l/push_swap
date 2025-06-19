@@ -26,17 +26,9 @@ void	ft_lstclear(t_list **lst)
 	}
 }
 
-void	ft_lstdelone(t_list *lst)
-{
-	if (!lst)
-		return ;
-	free(lst);
-}
-
 void	ft_free_array(char **result, int i)
 {
 	while (i > 0)
 		free(result[--i]);
 	free(result);
 }
-
