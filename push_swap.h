@@ -32,6 +32,7 @@ long	ft_atoi(const char *str);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 //parse_check.c
 int		ft_check_arg(char *str);
@@ -44,6 +45,26 @@ int		ft_check_sorted(int *array, t_list *lst);
 void	ft_free_array(char **result, int i);
 void	ft_lstclear(t_list **lst);
 void	ft_finish(t_list **list);
+
+//ft_push
+void	ft_push(t_list **dest, t_list **src);
+void	push_pb(t_list **stack_a, t_list **stack_b);
+void	push_pa(t_list **stack_b, t_list **stack_a);
+
+//ft_reverse
+void	ft_reverse(t_list **stack);
+void	reverse_ra(t_list **stack);
+void	reverse_rb(t_list **stack);
+
+//ft_rotate
+void	ft_rotate(t_list **stack);
+void	rotate_ra(t_list **stack);
+void	rotate_rb(t_list **stack);
+
+//ft_swap
+void	ft_swap(t_list **stack);
+void	swap_pa(t_list **stack);
+void	swap_pb(t_list **stack);
 
 //main.c
 int		ft_check_list(t_list *lst);

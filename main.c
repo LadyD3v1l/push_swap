@@ -16,7 +16,7 @@ void	print_list(t_list *lst)
 {
 	while (lst)
 	{
-		printf("%i\n", lst->content);
+		printf("%i ", lst->content);
 		lst = lst->next;
 	}
 }
@@ -40,7 +40,6 @@ int	main(int ac, char **av)
 	}
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
-	print_list(a);
 	return (0);
 }
 
@@ -57,3 +56,5 @@ int	ft_check_list(t_list *lst)
 		i = i + 1;
 	return (i);
 }
+
+// 18446744073709551630 1

@@ -46,11 +46,7 @@ void	ft_arg_int(t_list **stack, char *arg)
 	{
 		num = ft_atoi(array[i++]);
 		if (num > INT_MAX || num < INT_MIN)
-		{
-			ft_lstclear(stack);
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
+			ft_finish(stack);
 		node = ft_lstnew(num);
 		ft_lstadd_back(stack, node);
 	}
