@@ -4,7 +4,7 @@ NAME = push_swap.a
 OBJ_DIR = Obj
 
 SRC = ft_libft.c ft_libft2.c parse_check.c parse_free.c ft_push.c ft_reverse.c \
-		ft_rotate.c ft_swap.c
+		ft_rotate.c ft_swap.c quick_quick.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

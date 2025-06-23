@@ -37,14 +37,14 @@ long	ft_atoi(const char *str)
 	return (num * sig);
 }
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int num)
 {
 	t_list	*new;
 
 	new = malloc(sizeof(int));
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->num = num;
 	new->next = NULL;
 	return (new);
 }

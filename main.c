@@ -16,9 +16,20 @@ void	print_list(t_list *lst)
 {
 	while (lst)
 	{
-		printf("%i ", lst->content);
+		printf("%i\n", lst->num);
 		lst = lst->next;
 	}
+}
+
+void	push_swap(t_list **list_a, t_list **list_b)
+{
+	int		i;
+
+	i = ft_lstsize(*list_a);
+	if (i == 2)
+		swap_pa(list_a);
+	else if (i == 3)
+		quick_tree(list_a);
 }
 
 int	main(int ac, char **av)
@@ -40,19 +51,22 @@ int	main(int ac, char **av)
 	}
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
+	push_swap(&a, &b);
+	printf("\na:\n");
+	print_list(a);
+	printf("\nb:\n");
+	print_list(b);
 	return (0);
 }
 
 int	ft_check_list(t_list *lst)
 {
-	int		*lst_arg;
 	int		i;
 
 	i = 0;
-	lst_arg = ft_list_array(lst);
-	if (ft_check_sorted(lst_arg, lst) == 1)
+	if (check_sorted(lst) == 1)
 		i = i + 1;
-	if (ft_check_iden(lst_arg, lst) == 1)
+	if (check_iden(lst) == 1)
 		i = i + 1;
 	return (i);
 }

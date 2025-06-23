@@ -20,7 +20,7 @@
 
 typedef struct s_list
 {
-	int				content;
+	int				num;
 	struct s_list	*next;
 }					t_list;
 
@@ -29,7 +29,7 @@ char	**ft_split(char const *str, char c);
 
 //ft_libft2.c
 long	ft_atoi(const char *str);
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(int num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -37,19 +37,22 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 //parse_check.c
 int		ft_check_arg(char *str);
 void	ft_arg_int(t_list **stack, char *arg);
-int		*ft_list_array(t_list *list);
-int		ft_check_iden(int *array, t_list *lst);
-int		ft_check_sorted(int *array, t_list *lst);
+int		*list_array(t_list *list);
+int		check_iden(t_list *lst);
+int		check_sorted(t_list *lst);
 
 //parse_free.c
 void	ft_free_array(char **result, int i);
 void	ft_lstclear(t_list **lst);
 void	ft_finish(t_list **list);
 
+//quick_quick.c
+void	quick_tree(t_list **list_a);
+
 //ft_push
 void	ft_push(t_list **dest, t_list **src);
 void	push_pb(t_list **stack_a, t_list **stack_b);
-void	push_pa(t_list **stack_b, t_list **stack_a);
+void	push_pa(t_list **stack_a, t_list **stack_b);
 
 //ft_reverse
 void	ft_reverse(t_list **stack);
