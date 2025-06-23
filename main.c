@@ -21,7 +21,7 @@ void	print_list(t_list *lst)
 	}
 }
 
-void	push_swap(t_list **list_a, t_list **list_b)
+void	push_swap(t_list **list_a)
 {
 	int		i;
 
@@ -51,7 +51,7 @@ int	main(int ac, char **av)
 	}
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
-	push_swap(&a, &b);
+	push_swap(&a);
 	printf("\na:\n");
 	print_list(a);
 	printf("\nb:\n");
