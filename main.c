@@ -56,6 +56,7 @@ int	main(int ac, char **av)
 	print_list(a);
 	printf("\nb:\n");
 	print_list(b);
+	ft_lstclear(&a);
 	return (0);
 }
 

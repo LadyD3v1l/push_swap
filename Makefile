@@ -13,7 +13,7 @@ PURPLE = \033[35m
 RESET = \033[0m
 
 SRC = ft_libft.c ft_libft2.c parse_check.c parse_free.c ft_push.c ft_reverse.c \
-		ft_rotate.c ft_swap.c quick_quick.c
+		ft_rotate.c ft_swap.c quick_quick.c main.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

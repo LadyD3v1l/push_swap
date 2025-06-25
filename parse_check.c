@@ -89,11 +89,15 @@ int	check_iden(t_list *lst)
 		while (j < size)
 		{
 			if (array[i] == array[j])
-				return (0);
+			{
+				free(array);
+				return(0);
+			}
 			j++;
 		}
 		i++;
 	}
+	free(array);
 	return (1);
 }
 
@@ -109,8 +113,12 @@ int	check_sorted(t_list *lst)
 	while (i < size - 1)
 	{
 		if (array[i] > array[i + 1])
+		{
+			free(array);
 			return (1);
+		}
 		i++;
 	}
+	free(array);
 	return (0);
 }
