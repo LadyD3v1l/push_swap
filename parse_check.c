@@ -91,7 +91,7 @@ int	check_iden(t_list *lst)
 			if (array[i] == array[j])
 			{
 				free(array);
-				return(0);
+				return (0);
 			}
 			j++;
 		}

@@ -46,8 +46,12 @@ void	ft_free_array(char **result, int i);
 void	ft_lstclear(t_list **lst);
 void	ft_finish(t_list **list);
 
-//quick_quick.c
+//quick_lower.c
 void	quick_tree(t_list **list_a);
+int		lower_num(t_list **list_a);
+int		lower_posi(t_list **list, int low);
+void	move_rotate(t_list **list, int posi, int size, int low);
+void	quick_fove(t_list **list_a, t_list **list_b, int size);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);

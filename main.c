@@ -21,7 +21,7 @@ void	print_list(t_list *lst)
 	}
 }
 
-void	push_swap(t_list **list_a)
+void	push_swap(t_list **list_a, t_list **list_b)
 {
 	int		i;
 
@@ -30,6 +30,8 @@ void	push_swap(t_list **list_a)
 		swap_pa(list_a);
 	else if (i == 3)
 		quick_tree(list_a);
+	else if (i == 4 || i == 5)
+		quick_fove(list_a, list_b, i);
 }
 
 int	main(int ac, char **av)
@@ -51,11 +53,11 @@ int	main(int ac, char **av)
 	}
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
-	push_swap(&a);
-	printf("\na:\n");
+	push_swap(&a, &b);
+/*	printf("\na:\n");
 	print_list(a);
 	printf("\nb:\n");
-	print_list(b);
+	print_list(b);*/
 	ft_lstclear(&a);
 	return (0);
 }
