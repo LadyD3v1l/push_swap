@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 15:41:38 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/21 15:41:38 by jobraga          ###   ########.fr       */

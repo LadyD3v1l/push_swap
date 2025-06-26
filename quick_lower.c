@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   quick_lower.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:26:00 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/20 17:26:00 by jobraga          ###   ########.fr       */

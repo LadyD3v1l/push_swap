@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:09:22 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/18 12:09:22 by jobraga          ###   ########.fr       */

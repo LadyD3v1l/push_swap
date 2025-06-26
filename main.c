@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:21:21 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/18 12:21:21 by jobraga          ###   ########.fr       */
@@ -23,15 +23,17 @@ void	print_list(t_list *lst)
 
 void	push_swap(t_list **list_a, t_list **list_b)
 {
-	int		i;
+	int	len;
 
-	i = ft_lstsize(*list_a);
-	if (i == 2)
+	len = ft_lstsize(*list_a);
+	if (len == 2)
 		swap_pa(list_a);
-	else if (i == 3)
+	else if (len == 3)
 		quick_tree(list_a);
-	else if (i == 4 || i == 5)
-		quick_fove(list_a, list_b, i);
+	else if (len == 4 || len == 5)
+		quick_fove(list_a, list_b, len);
+	else
+		quick_number(list_a, len);
 }
 
 int	main(int ac, char **av)

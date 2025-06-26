@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:52:15 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/18 15:52:15 by jobraga          ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libft2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:54:45 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/18 11:54:45 by jobraga          ###   ########.fr       */

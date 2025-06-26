@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jobraga <jobraga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:12:39 by jobraga           #+#    #+#             */
 /*   Updated: 2025/06/18 12:12:39 by jobraga          ###   ########.fr       */
@@ -52,6 +52,9 @@ int		lower_num(t_list **list_a);
 int		lower_posi(t_list **list, int low);
 void	move_rotate(t_list **list, int posi, int size, int low);
 void	quick_fove(t_list **list_a, t_list **list_b, int size);
+
+//quick_sort.c
+void	quick_number(t_list **list_a, int size);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);
