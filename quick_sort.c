@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/26 19:11:11 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/26 19:32:13 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,16 @@ int	*bubble_sorted(int *str, int size)
 			i++;
 		}
 	}
-	return(str);
+	return (str);
 }
 
-void	quick_number(t_list **list_a, int size)
+int	*new_list(int *sort, int *orig, int *inside, int size)
 {
-	int		*original;
-	int		*sorted;
-	int		inside[size - 1];
-	int		i;
 	int		copied;
+	int		i;
 	int		j;
 	int		k;
 
-	original = list_array(*list_a);
-	sorted = bubble_sorted(list_array(*list_a), size);
 	copied = 1;
 	j = 0;
 	k = 0;
@@ -57,17 +52,32 @@ void	quick_number(t_list **list_a, int size)
 	{
 		copied = 0;
 		i = 0;
-		while(i < size)
+		while (i < size)
 		{
-			if (original[j] == sorted[i])
+			if (orig[j] == sort[i])
 			{
-				inside[k] = i;
+				inside[k++] = i;
 				i = 0;
 				j++;
-				k++;
 				copied = 1;
 			}
 			i++;
 		}
 	}
+	return (inside);
+}
+
+void	quick_number(t_list **list_a, int size)
+{
+	int		*original;
+	int		*sorted;
+	int		*inside;
+	int		num;
+
+	original = list_array(*list_a);
+	sorted = bubble_sorted(list_array(*list_a), size);
+	inside = malloc(sizeof(t_list) * size);
+	if (!inside)
+		return ;
+	inside = new_list(sorted, original, inside, size);
 }
