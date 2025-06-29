@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/26 19:32:13 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/29 14:00:21 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*new_list(int *sort, int *orig, int *inside, int size)
 	return (inside);
 }
 
-void	quick_number(t_list **list_a, int size)
+void	quick_number(t_list **list_a, t_list **list_b, int size)
 {
 	int		*original;
 	int		*sorted;
@@ -80,4 +80,13 @@ void	quick_number(t_list **list_a, int size)
 	if (!inside)
 		return ;
 	inside = new_list(sorted, original, inside, size);
+	ft_lstclear(list_a);
+	num = 0;
+	while (num < size)
+	{
+		ft_lstadd_back(list_a, ft_lstnew(inside[num]));
+		num++;
+	}
+	print_list(*list_a);
+	push_pb(list_a, list_b);
 }

@@ -15,17 +15,17 @@
 void	ft_reverse(t_list **stack)
 {
 	t_list	*aux;
-	t_list	*prep;
+	t_list	*before_last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	aux = *stack;
-	while (aux->next != NULL)
-	{
-		prep = aux;
+	while (aux->next)
 		aux = aux->next;
-	}
-	prep->next = NULL;
+	before_last = aux->prev;
+	before_last->next = NULL;
+	aux->prev = NULL;
+	aux->next = NULL;
 	ft_lstadd_front(stack, aux);
 }
 

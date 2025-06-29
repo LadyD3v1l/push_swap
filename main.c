@@ -33,7 +33,7 @@ void	push_swap(t_list **list_a, t_list **list_b)
 	else if (len == 4 || len == 5)
 		quick_fove(list_a, list_b, len);
 	else
-		quick_number(list_a, len);
+		quick_number(list_a, list_b, len);
 }
 
 int	main(int ac, char **av)
@@ -56,10 +56,10 @@ int	main(int ac, char **av)
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
 	push_swap(&a, &b);
-/*	printf("\na:\n");
+	printf("\na:\n");
 	print_list(a);
 	printf("\nb:\n");
-	print_list(b);*/
+	print_list(b);
 	ft_lstclear(&a);
 	return (0);
 }

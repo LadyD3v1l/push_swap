@@ -20,6 +20,10 @@ void	ft_push(t_list **dest, t_list **src)
 		return ;
 	temp = *src;
 	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	temp->next = NULL;
+	temp->prev = NULL;
 	ft_lstadd_front(dest, temp);
 }
 

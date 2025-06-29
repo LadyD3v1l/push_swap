@@ -46,6 +46,7 @@ t_list	*ft_lstnew(int num)
 		return (NULL);
 	new->num = num;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -64,6 +65,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = new;
+	new->prev = temp;
 }
 
 int	ft_lstsize(t_list *lst)
@@ -88,5 +90,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	if (!new || !lst)
 		return ;
 	new->next = *lst;
+	new->prev = NULL;
+	if (*lst)
+		(*lst)->prev = new;
 	*lst = new;
 }

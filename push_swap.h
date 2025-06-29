@@ -20,10 +20,12 @@
 
 typedef struct s_list
 {
-	int				num;
-	struct s_list	*next;
+	int				num; 		//valor armazenado
+	struct s_list	*next;		//próximo elemento
+	struct s_list	*prev; 		//elemento anterior
 }					t_list;
 
+void	print_list(t_list *lst);
 //ft_libft.c
 char	**ft_split(char const *str, char c);
 
@@ -54,7 +56,7 @@ void	move_rotate(t_list **list, int posi, int size, int low);
 void	quick_fove(t_list **list_a, t_list **list_b, int size);
 
 //quick_sort.c
-void	quick_number(t_list **list_a, int size);
+void	quick_number(t_list **list_a, t_list **list_b, int size);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);

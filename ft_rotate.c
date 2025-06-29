@@ -20,7 +20,9 @@ void	ft_rotate(t_list **stack)
 		return ;
 	aux = *stack;
 	*stack = aux->next;
+	(*stack)->prev = NULL;
 	aux->next = NULL;
+	aux->prev = NULL;
 	ft_lstadd_back(stack, aux);
 }
 

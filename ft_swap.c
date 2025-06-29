@@ -22,7 +22,11 @@ void	ft_swap(t_list **stack)
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
 	second->next = first;
+	first->prev = second;
 	*stack = second;
 }
 
