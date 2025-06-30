@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/30 01:49:55 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/30 04:09:38 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,37 @@ int	*bubble_sorted(int *str, int size)
 
 int	*new_list(int *sort, int *orig, int *inside, int size)
 {
-	int		copied;
 	int		i;
 	int		j;
-	int		k;
 
-	copied = 1;
 	j = 0;
-	k = 0;
-	while (copied)
+	while (j < size)
 	{
-		copied = 0;
 		i = 0;
 		while (i < size)
 		{
 			if (orig[j] == sort[i])
 			{
-				inside[k++] = i;
-				i = 0;
-				j++;
-				copied = 1;
+				inside[j] = i;
+				break;
 			}
 			i++;
 		}
+		j++;
 	}
 	return (inside);
 }
+
+/*void	organizer_list(t_list **list_a, t_list **list_b)
+{
+	t_list	*node;
+	
+	calculate(list_a, list_b);
+	node = calculate_cust(list_a);
+	printf("%d\n", node->num);
+	if (node->total_cust == 1)
+		push_pb(list_a, list_b);
+}*/
 
 void	quick_number(t_list **list_a, t_list **list_b, int size)
 {
@@ -73,10 +78,11 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	int		*sorted;
 	int		*inside;
 	int		num;
+	t_list	*node;
 
 	original = list_array(*list_a);
 	sorted = bubble_sorted(list_array(*list_a), size);
-	inside = malloc(sizeof(t_list) * size);
+	inside = malloc(sizeof(int) * size);
 	if (!inside)
 		return ;
 	inside = new_list(sorted, original, inside, size);
@@ -86,7 +92,19 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 		ft_lstadd_back(list_a, ft_lstnew(inside[num++]));
 	push_pb(list_a, list_b);
 	push_pb(list_a, list_b);
-	calculate_local(list_a);
-	calculate_rotate(list_a, list_b);
+	if (check_sorted(*list_b) != 1)
+		swap_pb(list_b);
+	calculate(list_a, list_b);
+	node = calculate_cust(list_a);
+	printf("%d\n", node->num);
 	print_local(*list_a);
+	if (node->total_cust == 0)
+		push_pb(list_a, list_b);
+	calculate(list_a, list_b);
+	node = calculate_cust(list_a);
+	printf("%d\n", node->num);
+	print_local(*list_a);
+	free(original);
+	free(sorted);
+	free(inside);
 }

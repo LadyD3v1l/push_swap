@@ -67,6 +67,9 @@ void	quick_number(t_list **list_a, t_list **list_b, int size);
 //calculate.c
 void	calculate_local(t_list **list);
 void	calculate_rotate(t_list **list_a, t_list **list_b);
+void	calculate_total(t_list **list);
+void	calculate(t_list **list_a, t_list **list_b);
+t_list	*calculate_cust(t_list **list);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);

@@ -27,7 +27,8 @@ void	print_local(t_list *lst)
 	{
 		printf("num: %i ", lst->num);
 		printf("local_a: %i ", lst->local_a);
-		printf("local_b: %i\n", lst->local_b);
+		printf("local_b: %i ", lst->local_b);
+		printf("total_cust: %i\n", lst->total_cust);
 		lst = lst->next;
 	}
 }
@@ -72,6 +73,7 @@ int	main(int ac, char **av)
 	printf("\nb:\n");
 	print_list(b);
 	ft_lstclear(&a);
+	ft_lstclear(&b);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 01:42:07 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/30 01:50:36 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/30 04:08:39 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	calculate_rotate(t_list **list_a, t_list **list_b)
 		local = 0;
 		while (aux)
 		{
-			if (value->num > aux->num
-				&& (!aux->next || value->num < aux->next->num))
+			if (value->num < aux->num
+				&& (!aux->next || value->num > aux->next->num))
 				break ;
 			local++;
 			aux = aux->next;
@@ -59,4 +59,44 @@ void	calculate_rotate(t_list **list_a, t_list **list_b)
 			value->local_b = local - i;
 		value = value->next;
 	}
+}
+
+void	calculate_total(t_list **list)
+{
+	t_list	*aux;
+
+	aux = *list;
+	while (aux)
+	{
+		aux->total_cust = abs(aux->local_a) + abs(aux->local_b);
+		aux = aux->next; 
+	}
+}
+
+void	calculate(t_list **list_a, t_list **list_b)
+{
+	calculate_local(list_a);
+	calculate_rotate(list_a, list_b);
+	calculate_total(list_a);
+}
+
+t_list	*calculate_cust(t_list **list)
+{
+	t_list	*point;
+	t_list	*aux;
+	int		low;
+	
+	aux = *list;
+	point = aux;
+	low = aux->total_cust;
+	while (aux)
+	{
+		if (aux->total_cust < low)
+		{
+			low = aux->total_cust;
+			point = aux;
+		}
+		aux = aux->next;
+	}
+	return(point);
 }
