@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/29 14:00:21 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/30 01:49:55 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	ft_lstclear(list_a);
 	num = 0;
 	while (num < size)
-	{
-		ft_lstadd_back(list_a, ft_lstnew(inside[num]));
-		num++;
-	}
-	print_list(*list_a);
+		ft_lstadd_back(list_a, ft_lstnew(inside[num++]));
 	push_pb(list_a, list_b);
+	push_pb(list_a, list_b);
+	calculate_local(list_a);
+	calculate_rotate(list_a, list_b);
+	print_local(*list_a);
 }

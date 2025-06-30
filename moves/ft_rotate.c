@@ -37,3 +37,10 @@ void	rotate_rb(t_list **stack)
 	ft_rotate(stack);
 	write(1, "rb\n", 3);
 }
+
+void	rotate_rr(t_list **stack_a, t_list **stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+	write(1, "rr\n", 3);
+}

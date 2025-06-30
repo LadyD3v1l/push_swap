@@ -21,6 +21,17 @@ void	print_list(t_list *lst)
 	}
 }
 
+void	print_local(t_list *lst)
+{
+	while (lst)
+	{
+		printf("num: %i ", lst->num);
+		printf("local_a: %i ", lst->local_a);
+		printf("local_b: %i\n", lst->local_b);
+		lst = lst->next;
+	}
+}
+
 void	push_swap(t_list **list_a, t_list **list_b)
 {
 	int	len;

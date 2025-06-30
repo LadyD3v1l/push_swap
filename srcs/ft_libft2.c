@@ -45,6 +45,9 @@ t_list	*ft_lstnew(int num)
 	if (!new)
 		return (NULL);
 	new->num = num;
+	new->local_a = 0;
+	new->local_b = 0;
+	new->total_cust = 0;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

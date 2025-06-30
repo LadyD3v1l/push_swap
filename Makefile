@@ -1,6 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
-NAME = push_swap.a
+CFLAGS = -Wall -Werror -Wextra -I.
 EXEC = push_swap
 OBJ_DIR = Obj
 
@@ -12,22 +11,20 @@ CINZA = \033[47m\033[30m
 PURPLE = \033[35m
 RESET = \033[0m
 
-SRC = ft_libft.c ft_libft2.c parse_check.c parse_free.c ft_push.c ft_reverse.c \
-		ft_rotate.c ft_swap.c quick_lower.c quick_sort.c main.c
+SRC = srcs/ft_libft.c srcs/ft_libft2.c srcs/parse_check.c srcs/parse_free.c \
+		moves/ft_push.c moves/ft_reverse.c moves/ft_rotate.c moves/ft_swap.c \
+		quick_lower.c quick_sort.c main.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-all: $(NAME) $(EXEC)
+all: $(EXEC)
 
-$(NAME): $(OBJ) 
-		@echo "$(BG_PURPLE)$(WHITE)[REBUILD] PUSH_SWAP *-*$(RESET)"
-		@ar rcs $@ $^
-
-$(EXEC): main.c $(NAME)
-		@echo "$(BG_PURPLE)$(BLACK)[REBUILD] Linkando $(NAME)$(RESET)"
-	@$(CC) $(CFLAGS) main.c $(NAME) -o $(EXEC)
+$(EXEC): $(OBJ)
+		@echo "$(BG_PURPLE)$(BLACK)[CRIATE] PUSH_SWAP *-* $(EXEC)$(RESET)"
+		@$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+		@mkdir -p $(dir $@)
 		@echo "$(PURPLE)[COMPILE] $<$(RESET)"
 		@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -47,7 +44,7 @@ fclean: clean
 		@echo "$(CINZA)$(BLACK)| * * |$(RESET)"
 		@echo "$(CINZA)$(BLACK)|* *  |$(RESET)"
 		@echo "Andou, andou e no lixo parouu! 🗑️"
-		@rm -f $(NAME) $(EXEC)
+		@rm -f $(EXEC)
 
 re: fclean all
 

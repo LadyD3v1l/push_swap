@@ -40,3 +40,10 @@ void	reverse_rb(t_list **stack)
 	ft_reverse(stack);
 	write(1, "rrb\n", 4);
 }
+
+void	reverse_rrr(t_list **stack_a, t_list **stack_b)
+{
+	ft_reverse(stack_a);
+	ft_reverse(stack_b);
+	write(1, "rrr\n", 4);
+}

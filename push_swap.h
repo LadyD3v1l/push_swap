@@ -20,12 +20,16 @@
 
 typedef struct s_list
 {
-	int				num; 		//valor armazenado
+	int				local_a;
+	int				local_b;
+	int				total_cust;
+	int				num;		//valor armazenado
 	struct s_list	*next;		//próximo elemento
-	struct s_list	*prev; 		//elemento anterior
+	struct s_list	*prev;		//elemento anterior
 }					t_list;
 
 void	print_list(t_list *lst);
+void	print_local(t_list *lst);
 //ft_libft.c
 char	**ft_split(char const *str, char c);
 
@@ -56,7 +60,13 @@ void	move_rotate(t_list **list, int posi, int size, int low);
 void	quick_fove(t_list **list_a, t_list **list_b, int size);
 
 //quick_sort.c
+int		*bubble_sorted(int *str, int size);
+int		*new_list(int *sort, int *orig, int *inside, int size);
 void	quick_number(t_list **list_a, t_list **list_b, int size);
+
+//calculate.c
+void	calculate_local(t_list **list);
+void	calculate_rotate(t_list **list_a, t_list **list_b);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);
@@ -67,11 +77,13 @@ void	push_pa(t_list **stack_a, t_list **stack_b);
 void	ft_reverse(t_list **stack);
 void	reverse_ra(t_list **stack);
 void	reverse_rb(t_list **stack);
+void	reverse_rrr(t_list **stack_a, t_list **stack_b);
 
 //ft_rotate
 void	ft_rotate(t_list **stack);
 void	rotate_ra(t_list **stack);
 void	rotate_rb(t_list **stack);
+void	rotate_rr(t_list **stack_a, t_list **stack_b);
 
 //ft_swap
 void	ft_swap(t_list **stack);
