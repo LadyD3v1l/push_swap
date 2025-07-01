@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/30 04:09:38 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:13:18 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,17 @@ int	*new_list(int *sort, int *orig, int *inside, int size)
 	return (inside);
 }
 
-/*void	organizer_list(t_list **list_a, t_list **list_b)
+void	organizer_list(t_list **list_a, t_list **list_b)
 {
 	t_list	*node;
-	
+
 	calculate(list_a, list_b);
 	node = calculate_cust(list_a);
 	printf("%d\n", node->num);
-	if (node->total_cust == 1)
-		push_pb(list_a, list_b);
-}*/
+	print_local(*list_a);
+	if (node->total_cust == 0)
+		return ;
+}
 
 void	quick_number(t_list **list_a, t_list **list_b, int size)
 {
@@ -78,7 +79,7 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	int		*sorted;
 	int		*inside;
 	int		num;
-	t_list	*node;
+//	t_list	*node;
 
 	original = list_array(*list_a);
 	sorted = bubble_sorted(list_array(*list_a), size);
@@ -94,16 +95,17 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	push_pb(list_a, list_b);
 	if (check_sorted(*list_b) != 1)
 		swap_pb(list_b);
+	organizer_list(list_a, list_b);
+/*	push_pb(list_a, list_b);
 	calculate(list_a, list_b);
 	node = calculate_cust(list_a);
 	printf("%d\n", node->num);
 	print_local(*list_a);
-	if (node->total_cust == 0)
+	while (ft_lstsize(*list_a) > 7)
+	{
+		organizer_list(list_a, list_b);
 		push_pb(list_a, list_b);
-	calculate(list_a, list_b);
-	node = calculate_cust(list_a);
-	printf("%d\n", node->num);
-	print_local(*list_a);
+	}*/
 	free(original);
 	free(sorted);
 	free(inside);

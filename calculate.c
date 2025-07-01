@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 01:42:07 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/30 04:08:39 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/01 11:12:58 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	calculate_rotate(t_list **list_a, t_list **list_b)
 		local = 0;
 		while (aux)
 		{
-			if (value->num < aux->num
-				&& (!aux->next || value->num > aux->next->num))
+			if (value->num > aux->num || (value->num < aux->num
+				&& (!aux->next || value->num > aux->next->num)))
 				break ;
 			local++;
 			aux = aux->next;
@@ -60,7 +60,7 @@ void	calculate_rotate(t_list **list_a, t_list **list_b)
 		value = value->next;
 	}
 }
-
+	
 void	calculate_total(t_list **list)
 {
 	t_list	*aux;
