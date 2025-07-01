@@ -65,7 +65,8 @@ int		*new_list(int *sort, int *orig, int *inside, int size);
 void	quick_number(t_list **list_a, t_list **list_b, int size);
 
 //calculate.c
-void	calculate_local(t_list **list);
+void	calculate_local_a(t_list **list);
+void	calculate_local_b(t_list **list);
 void	calculate_rotate(t_list **list_a, t_list **list_b);
 void	calculate_total(t_list **list);
 void	calculate(t_list **list_a, t_list **list_b);
@@ -78,8 +79,8 @@ void	push_pa(t_list **stack_a, t_list **stack_b);
 
 //ft_reverse
 void	ft_reverse(t_list **stack);
-void	reverse_ra(t_list **stack);
-void	reverse_rb(t_list **stack);
+void	reverse_rra(t_list **stack);
+void	reverse_rrb(t_list **stack);
 void	reverse_rrr(t_list **stack_a, t_list **stack_b);
 
 //ft_rotate

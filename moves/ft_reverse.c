@@ -29,13 +29,13 @@ void	ft_reverse(t_list **stack)
 	ft_lstadd_front(stack, aux);
 }
 
-void	reverse_ra(t_list **stack)
+void	reverse_rra(t_list **stack)
 {
 	ft_reverse(stack);
 	write(1, "rra\n", 4);
 }
 
-void	reverse_rb(t_list **stack)
+void	reverse_rrb(t_list **stack)
 {
 	ft_reverse(stack);
 	write(1, "rrb\n", 4);

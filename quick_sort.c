@@ -6,71 +6,106 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/06/30 21:13:18 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 00:49:20 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*bubble_sorted(int *str, int size)
+int	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 {
-	int		i;
-	int		swap;
-	int		aux;
+	int		posi;
 
-	swap = 1;
-	while (swap)
+	posi = 0;
+	while (*posi_a > 0 && *posi_b > 0)
 	{
-		swap = 0;
-		i = 0;
-		while (i < size - 1)
-		{
-			if (str[i] > str[i + 1])
-			{
-				aux = str[i];
-				str[i] = str[i + 1];
-				str[i + 1] = aux;
-				swap = 1;
-			}
-			i++;
-		}
+		rotate_rr(list_a, list_b);
+		(*posi_a)--;
+		(*posi_b)--;
+		posi++;
 	}
-	return (str);
+	while (*posi_a > 0)
+	{
+		rotate_ra(list_a);
+		(*posi_a)--;
+	}
+	while (*posi_b > 0)
+	{
+		rotate_rb(list_b);
+		(*posi_b)--;
+		posi++;
+	}
+	return (posi);
 }
 
-int	*new_list(int *sort, int *orig, int *inside, int size)
+int	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
+{
+	int		posi;
+
+	posi = 0;
+	while (*posi_a < 0 && *posi_b < 0)
+	{
+		reverse_rrr(list_a, list_b);
+		(*posi_a)++;
+		(*posi_b)++;
+		posi++;
+	}
+	while (*posi_a < 0)
+	{
+		reverse_rra(list_a);
+		(*posi_a)++;
+	}
+	while (*posi_b < 0)
+	{
+		reverse_rrb(list_b);
+		(*posi_b)++;
+		posi++;
+	}
+	return (posi);
+}
+
+int	check_sorted_list(t_list *lst)
 {
 	int		i;
-	int		j;
+	int		size;
+	int		*array;
 
-	j = 0;
-	while (j < size)
+	i = 0;
+	size = ft_lstsize(lst);
+	array = list_array(lst);
+	while (i < size - 1)
 	{
-		i = 0;
-		while (i < size)
+		if (array[i] < array[i + 1])
 		{
-			if (orig[j] == sort[i])
-			{
-				inside[j] = i;
-				break;
-			}
-			i++;
+			free(array);
+			return (0);
 		}
-		j++;
+		i++;
 	}
-	return (inside);
+	free(array);
+	return (1);
 }
 
 void	organizer_list(t_list **list_a, t_list **list_b)
 {
 	t_list	*node;
+	int		a;
+	int		b;
 
 	calculate(list_a, list_b);
 	node = calculate_cust(list_a);
-	printf("%d\n", node->num);
-	print_local(*list_a);
-	if (node->total_cust == 0)
-		return ;
+	a = node->local_a;
+	b = node->local_b;
+	rotate_list(list_a, list_b, &a, &b);
+	reverse_list(list_a, list_b, &a, &b);
+	if (a == 0 && b == 0)
+	{
+		push_pb(list_a, list_b);
+		while (check_sorted_list(*list_b) != 1)
+			rotate_rb(list_b);
+		if (check_sorted_list(*list_b) == 0)
+			return ;
+	}
 }
 
 void	quick_number(t_list **list_a, t_list **list_b, int size)
@@ -79,7 +114,6 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	int		*sorted;
 	int		*inside;
 	int		num;
-//	t_list	*node;
 
 	original = list_array(*list_a);
 	sorted = bubble_sorted(list_array(*list_a), size);
@@ -95,17 +129,8 @@ void	quick_number(t_list **list_a, t_list **list_b, int size)
 	push_pb(list_a, list_b);
 	if (check_sorted(*list_b) != 1)
 		swap_pb(list_b);
-	organizer_list(list_a, list_b);
-/*	push_pb(list_a, list_b);
-	calculate(list_a, list_b);
-	node = calculate_cust(list_a);
-	printf("%d\n", node->num);
-	print_local(*list_a);
-	while (ft_lstsize(*list_a) > 7)
-	{
+	while (ft_lstsize(*list_a) > 0)
 		organizer_list(list_a, list_b);
-		push_pb(list_a, list_b);
-	}*/
 	free(original);
 	free(sorted);
 	free(inside);

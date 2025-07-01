@@ -13,7 +13,8 @@ RESET = \033[0m
 
 SRC = srcs/ft_libft.c srcs/ft_libft2.c srcs/parse_check.c srcs/parse_free.c \
 		moves/ft_push.c moves/ft_reverse.c moves/ft_rotate.c moves/ft_swap.c \
-		srcs/quick_lower.c quick_sort.c calculate.c main.c
+		srcs/quick_lower.c quick_sort.c srcs/calculate.c main.c \
+		srcs/insider.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

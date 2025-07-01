@@ -68,10 +68,10 @@ int	main(int ac, char **av)
 	if (ft_check_list(a) != 2)
 		ft_finish(&a);
 	push_swap(&a, &b);
-	printf("\na:\n");
+/*	printf("\na:\n");
 	print_list(a);
 	printf("\nb:\n");
-	print_list(b);
+	print_list(b);*/
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

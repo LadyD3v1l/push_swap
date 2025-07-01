@@ -19,13 +19,13 @@ void	quick_tree(t_list **list_a)
 	aux = *list_a;
 	if (aux->num < aux->next->num && aux->num < aux->next->next->num)
 	{
-		reverse_ra(list_a);
+		reverse_rra(list_a);
 		swap_pa(list_a);
 	}
 	else if (aux->num > aux->next->num && aux->num < aux->next->next->num)
 		swap_pa(list_a);
 	else if (aux->num < aux->next->num && aux->num > aux->next->next->num)
-		reverse_ra(list_a);
+		reverse_rra(list_a);
 	else if (aux->num > aux->next->num && aux->num > aux->next->next->num)
 	{
 		rotate_ra(list_a);
@@ -36,7 +36,7 @@ void	quick_tree(t_list **list_a)
 	else
 	{
 		swap_pa(list_a);
-		reverse_ra(list_a);
+		reverse_rra(list_a);
 	}
 }
 
@@ -84,7 +84,7 @@ void	move_rotate(t_list **list, int posi, int size, int low)
 	if (posi <= (size / 2) && aux->num != low)
 		rotate_ra(list);
 	else if (posi > (size / 2) && aux->num != low)
-		reverse_ra(list);
+		reverse_rra(list);
 }
 
 void	quick_fove(t_list **list_a, t_list **list_b, int size)
