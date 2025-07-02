@@ -45,7 +45,11 @@ void	push_swap(t_list **list_a, t_list **list_b)
 	else if (len == 4 || len == 5)
 		quick_fove(list_a, list_b, len);
 	else
+	{
 		quick_number(list_a, list_b, len);
+		while (ft_lstsize(*list_b) > 0)
+			push_pa(list_a, list_b);
+	}
 }
 
 int	main(int ac, char **av)
