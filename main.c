@@ -47,8 +47,8 @@ void	push_swap(t_list **list_a, t_list **list_b)
 	else
 	{
 		quick_number(list_a, list_b, len);
-		while (ft_lstsize(*list_b) > 0)
-			push_pa(list_a, list_b);
+/* 		while (ft_lstsize(*list_b) > 0)
+			push_pa(list_a, list_b); */
 	}
 }
 

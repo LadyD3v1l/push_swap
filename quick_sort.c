@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 14:21:05 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:08:48 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,13 @@ int	check_sorted_list(t_list *lst)
 	return (1);
 }
 
-int	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
+void	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 {
-	int		posi;
-
-	posi = -1;
 	while (*posi_a > 0 && *posi_b > 0)
 	{
 		rotate_rr(list_a, list_b);
 		(*posi_a)--;
 		(*posi_b)--;
-		posi++;
 	}
 	while (*posi_a > 0)
 	{
@@ -55,22 +51,16 @@ int	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 	{
 		rotate_rb(list_b);
 		(*posi_b)--;
-		posi++;
 	}
-	return (posi);
 }
 
-int	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
+void	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 {
-	int		posi;
-
-	posi = 1;
 	while (*posi_a < 0 && *posi_b < 0)
 	{
 		reverse_rrr(list_a, list_b);
 		(*posi_a)++;
 		(*posi_b)++;
-		posi++;
 	}
 	while (*posi_a < 0)
 	{
@@ -81,17 +71,7 @@ int	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 	{
 		reverse_rrb(list_b);
 		(*posi_b)++;
-		posi++;
 	}
-	return (posi);
-}
-
-void	rotate_reverse(t_list **list, int control)
-{
-	if (control > 0)
-		rotate_rb(list);
-	else if (control < 0)
-		reverse_rrb(list);
 }
 
 void	organizer_list(t_list **list_a, t_list **list_b)
@@ -99,26 +79,27 @@ void	organizer_list(t_list **list_a, t_list **list_b)
 	t_list	*node;
 	int		a;
 	int		b;
-	int		control;
+	int		low;
 
 	calculate(list_a, list_b);
-	node = calculate_cust(list_a);
-	printf("node: %i\n", node->num);
+	low = lower_num(list_a);
+	node = calculate_cust(list_a, low);
+	//printf("node: %i\n", node->num);
 	a = node->local_a;
 	b = node->local_b;
-	printf("A:\n");
+/*	printf("A:\n");
 	print_local(*list_a);
 	printf("B:\n");
-	print_local(*list_b);
-	control = rotate_list(list_a, list_b, &a, &b);
-	control = reverse_list(list_a, list_b, &a, &b);
+	print_local(*list_b);*/
+	rotate_list(list_a, list_b, &a, &b);
+	reverse_list(list_a, list_b, &a, &b);
 	if (a == 0 && b == 0)
 	{
 		push_pb(list_a, list_b);
-		while (check_sorted_list(*list_b) != 1)
-			rotate_reverse(list_b, control);
+/* 		while (check_sorted_list(*list_b) != 1)
+		 	rotate_reverse(list_b, control);
 		if (check_sorted_list(*list_b) == 1)
-			return ;
+		 	return ; */
 	}
 }
 

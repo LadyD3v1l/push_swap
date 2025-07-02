@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 01:42:07 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 14:23:50 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:07:25 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	calculate(t_list **list_a, t_list **list_b)
 	calculate_total(list_a);
 }
 
-t_list	*calculate_cust(t_list **list)
+t_list	*calculate_cust(t_list **list, int lower)
 {
 	t_list	*point;
 	t_list	*aux;
@@ -91,8 +91,13 @@ t_list	*calculate_cust(t_list **list)
 	{
 		if (aux->total_cust < low)
 		{
-			low = aux->total_cust;
-			point = aux;
+			if (aux->num == lower)
+				aux = aux->next;
+			else
+			{
+				low = aux->total_cust;
+				point = aux;
+			}
 		}
 		aux = aux->next;
 	}

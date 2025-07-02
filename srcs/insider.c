@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 20:43:35 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 00:50:57 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 15:48:53 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	*new_list(int *sort, int *orig, int *inside, int size)
 		{
 			if (orig[j] == sort[i])
 			{
-				inside[j] = i;
+				inside[j] = i + 1;
 				break ;
 			}
 			i++;

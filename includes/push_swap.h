@@ -66,11 +66,10 @@ void	quick_number(t_list **list_a, t_list **list_b, int size);
 
 //calculate.c
 void	calculate_local_a(t_list **list);
-void	calculate_local_b(t_list **list);
 void	calculate_rotate(t_list **list_a, t_list **list_b);
 void	calculate_total(t_list **list);
 void	calculate(t_list **list_a, t_list **list_b);
-t_list	*calculate_cust(t_list **list);
+t_list	*calculate_cust(t_list **list, int lower);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);
