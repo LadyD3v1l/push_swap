@@ -6,7 +6,7 @@
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 01:42:07 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 16:07:25 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:39:17 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,43 @@ void	calculate_local_a(t_list **list)
 	}
 }
 
+int	best_local_list(t_list *list_b, int num)
+{
+	t_list	*best;
+	t_list	*tmp;
+
+	best = NULL;
+	tmp = list_b;
+	while (tmp)
+	{
+		if (tmp->num < num)
+		{
+			if (!best || tmp->num > best->num)
+				best = tmp;
+		}
+		tmp = tmp->next;
+	}
+	if (best)
+		return (best->local_a);
+	best = list_b;
+	tmp = list_b;
+	while (tmp)
+	{
+		if (tmp->num > best->num)
+			best = tmp;
+		tmp = tmp->next;
+	}
+	return (best->local_a);
+}
+
 void	calculate_rotate(t_list **list_a, t_list **list_b)
 {
-	t_list	*aux;
 	t_list	*value;
 
 	value = *list_a;
 	while (value)
 	{
-		aux = *list_b;
-		while (aux)
-		{
-			if (value->num < aux->num
-				&& (!aux->next || value->num > aux->next->num))
-			{
-				if (!aux->next)
-					value->local_b = 0;
-				else
-					value->local_b = aux->next->local_a;
-				break ;
-			}
-			aux = aux->next;
-		}
+		value->local_b = best_local_list(*list_b, value->num);
 		value = value->next;
 	}
 }
@@ -70,15 +85,7 @@ void	calculate_total(t_list **list)
 	}
 }
 
-void	calculate(t_list **list_a, t_list **list_b)
-{
-	calculate_local_a(list_a);
-	calculate_local_a(list_b);
-	calculate_rotate(list_a, list_b);
-	calculate_total(list_a);
-}
-
-t_list	*calculate_cust(t_list **list, int lower)
+t_list	*calculate_cust(t_list **list)
 {
 	t_list	*point;
 	t_list	*aux;
@@ -91,13 +98,8 @@ t_list	*calculate_cust(t_list **list, int lower)
 	{
 		if (aux->total_cust < low)
 		{
-			if (aux->num == lower)
-				aux = aux->next;
-			else
-			{
-				low = aux->total_cust;
-				point = aux;
-			}
+			low = aux->total_cust;
+			point = aux;
 		}
 		aux = aux->next;
 	}

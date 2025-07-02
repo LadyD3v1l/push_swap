@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insider.c                                          :+:      :+:    :+:   */
+/*   extras.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 20:43:35 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 15:48:53 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:57:36 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,34 @@ int	*new_list(int *sort, int *orig, int *inside, int size)
 		j++;
 	}
 	return (inside);
+}
+
+int	check_sorted_list(t_list *lst)
+{
+	int		i;
+	int		size;
+	int		*array;
+
+	i = 0;
+	size = ft_lstsize(lst);
+	array = list_array(lst);
+	while (i < size - 1)
+	{
+		if (array[i] < array[i + 1])
+		{
+			free(array);
+			return (0);
+		}
+		i++;
+	}
+	free(array);
+	return (1);
+}
+
+void	calculate(t_list **list_a, t_list **list_b)
+{
+	calculate_local_a(list_a);
+	calculate_local_a(list_b);
+	calculate_rotate(list_a, list_b);
+	calculate_total(list_a);
 }

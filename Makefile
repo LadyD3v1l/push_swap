@@ -11,10 +11,10 @@ CINZA = \033[47m\033[30m
 PURPLE = \033[35m
 RESET = \033[0m
 
-SRC = srcs/ft_libft.c srcs/ft_libft2.c srcs/parse_check.c srcs/parse_free.c \
-		moves/ft_push.c moves/ft_reverse.c moves/ft_rotate.c moves/ft_swap.c \
-		srcs/quick_lower.c quick_sort.c srcs/calculate.c main.c \
-		srcs/insider.c
+SRC = moves/ft_push.c moves/ft_reverse.c moves/ft_rotate.c moves/ft_swap.c \
+		srcs/big_cases.c srcs/calculate.c srcs/extras.c srcs/libft.c \
+		srcs/libft2.c srcs/main.c srcs/parse_check.c srcs/parse_free.c \
+		srcs/small_cases.c
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

@@ -36,21 +36,21 @@ int	ft_check_arg(char *str)
 void	ft_arg_int(t_list **stack, char *arg)
 {
 	t_list	*node;
-	int		i;
+	int		inter;
 	char	**array;
 	long	num;
 
 	array = ft_split(arg, ' ');
-	i = 0;
-	while (array[i])
+	inter = 0;
+	while (array[inter])
 	{
-		num = ft_atoi(array[i++]);
+		num = ft_atoi(array[inter++]);
 		if (num > INT_MAX || num < INT_MIN)
 			ft_finish(stack);
 		node = ft_lstnew(num);
 		ft_lstadd_back(stack, node);
 	}
-	ft_free_array(array, i);
+	ft_free_array(array, inter);
 }
 
 int	*list_array(t_list *list)

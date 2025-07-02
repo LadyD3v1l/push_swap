@@ -28,17 +28,39 @@ typedef struct s_list
 	struct s_list	*prev;		//elemento anterior
 }					t_list;
 
-void	print_list(t_list *lst);
-void	print_local(t_list *lst);
-//ft_libft.c
+//big_cases.c
+void	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b);
+void	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *pos_b);
+t_list	*calculate_list(t_list **list);
+void	organizer_list(t_list **list_a, t_list **list_b);
+void	push_number(t_list **list_a, t_list **list_b, int size);
+
+//calculate.c
+void	calculate_local_a(t_list **list);
+int		best_local_list(t_list *list_b, int num);
+void	calculate_rotate(t_list **list_a, t_list **list_b);
+void	calculate_total(t_list **list);
+t_list	*calculate_cust(t_list **list);
+
+//extras.c
+int		*bubble_sorted(int *str, int size);
+int		*new_list(int *sort, int *orig, int *inside, int size);
+int		check_sorted_list(t_list *lst);
+void	calculate(t_list **list_a, t_list **list_b);
+
+//libft.c
 char	**ft_split(char const *str, char c);
 
-//ft_libft2.c
+//libft2.c
 long	ft_atoi(const char *str);
 t_list	*ft_lstnew(int num);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+//main.c
+void	push_swap_upper(t_list **list_a, t_list **list_b, int size);
+void	push_swap(t_list **list_a, t_list **list_b);
 
 //parse_check.c
 int		ft_check_arg(char *str);
@@ -52,48 +74,33 @@ void	ft_free_array(char **result, int i);
 void	ft_lstclear(t_list **lst);
 void	ft_finish(t_list **list);
 
-//quick_lower.c
-void	quick_tree(t_list **list_a);
+//small_cases.c
+void	push_tree(t_list **list_a);
 int		lower_num(t_list **list_a);
 int		lower_posi(t_list **list, int low);
 void	move_rotate(t_list **list, int posi, int size, int low);
-void	quick_fove(t_list **list_a, t_list **list_b, int size);
-
-//quick_sort.c
-int		*bubble_sorted(int *str, int size);
-int		*new_list(int *sort, int *orig, int *inside, int size);
-void	quick_number(t_list **list_a, t_list **list_b, int size);
-
-//calculate.c
-void	calculate_local_a(t_list **list);
-void	calculate_rotate(t_list **list_a, t_list **list_b);
-void	calculate_total(t_list **list);
-void	calculate(t_list **list_a, t_list **list_b);
-t_list	*calculate_cust(t_list **list, int lower);
+void	push_fove(t_list **list_a, t_list **list_b, int size);
 
 //ft_push
 void	ft_push(t_list **dest, t_list **src);
 void	push_pb(t_list **stack_a, t_list **stack_b);
 void	push_pa(t_list **stack_a, t_list **stack_b);
 
-//ft_reverse
+//ft_reverse.c
 void	ft_reverse(t_list **stack);
 void	reverse_rra(t_list **stack);
 void	reverse_rrb(t_list **stack);
 void	reverse_rrr(t_list **stack_a, t_list **stack_b);
 
-//ft_rotate
+//ft_rotate.c
 void	ft_rotate(t_list **stack);
 void	rotate_ra(t_list **stack);
 void	rotate_rb(t_list **stack);
 void	rotate_rr(t_list **stack_a, t_list **stack_b);
 
-//ft_swap
+//ft_swap.c
 void	ft_swap(t_list **stack);
 void	swap_pa(t_list **stack);
 void	swap_pb(t_list **stack);
-
-//main.c
-int		ft_check_list(t_list *lst);
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_lower.c                                      :+:      :+:    :+:   */
+/*   small_cases.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	quick_tree(t_list **list_a)
+void	push_tree(t_list **list_a)
 {
 	t_list	*aux;
 
@@ -87,7 +87,7 @@ void	move_rotate(t_list **list, int posi, int size, int low)
 		reverse_rra(list);
 }
 
-void	quick_fove(t_list **list_a, t_list **list_b, int size)
+void	push_fove(t_list **list_a, t_list **list_b, int size)
 {
 	int		num;
 	int		lower;
@@ -107,7 +107,7 @@ void	quick_fove(t_list **list_a, t_list **list_b, int size)
 			num--;
 		}
 	}
-	quick_tree(list_a);
+	push_tree(list_a);
 	while (num != size)
 	{
 		push_pa(list_a, list_b);

@@ -1,38 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   big_cases.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jobraga- <jobraga-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:35:29 by jobraga-          #+#    #+#             */
-/*   Updated: 2025/07/02 16:08:48 by jobraga-         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:59:01 by jobraga-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_sorted_list(t_list *lst)
-{
-	int		i;
-	int		size;
-	int		*array;
-
-	i = 0;
-	size = ft_lstsize(lst);
-	array = list_array(lst);
-	while (i < size - 1)
-	{
-		if (array[i] < array[i + 1])
-		{
-			free(array);
-			return (0);
-		}
-		i++;
-	}
-	free(array);
-	return (1);
-}
 
 void	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 {
@@ -54,24 +32,45 @@ void	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
 	}
 }
 
-void	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b)
+void	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *pos_b)
 {
-	while (*posi_a < 0 && *posi_b < 0)
+	while (*posi_a < 0 && *pos_b < 0)
 	{
 		reverse_rrr(list_a, list_b);
 		(*posi_a)++;
-		(*posi_b)++;
+		(*pos_b)++;
 	}
 	while (*posi_a < 0)
 	{
 		reverse_rra(list_a);
 		(*posi_a)++;
 	}
-	while (*posi_b < 0)
+	while (*pos_b < 0)
 	{
 		reverse_rrb(list_b);
-		(*posi_b)++;
+		(*pos_b)++;
 	}
+}
+
+t_list	*calculate_list(t_list **list)
+{
+	t_list	*point;
+	t_list	*aux;
+	int		upper;
+
+	aux = *list;
+	point = aux;
+	upper = aux->num;
+	while (aux)
+	{
+		if (aux->num > upper)
+		{
+			upper = aux->num;
+			point = aux;
+		}
+		aux = aux->next;
+	}
+	return (point);
 }
 
 void	organizer_list(t_list **list_a, t_list **list_b)
@@ -79,31 +78,18 @@ void	organizer_list(t_list **list_a, t_list **list_b)
 	t_list	*node;
 	int		a;
 	int		b;
-	int		low;
 
 	calculate(list_a, list_b);
-	low = lower_num(list_a);
-	node = calculate_cust(list_a, low);
-	//printf("node: %i\n", node->num);
+	node = calculate_cust(list_a);
 	a = node->local_a;
 	b = node->local_b;
-/*	printf("A:\n");
-	print_local(*list_a);
-	printf("B:\n");
-	print_local(*list_b);*/
 	rotate_list(list_a, list_b, &a, &b);
 	reverse_list(list_a, list_b, &a, &b);
 	if (a == 0 && b == 0)
-	{
 		push_pb(list_a, list_b);
-/* 		while (check_sorted_list(*list_b) != 1)
-		 	rotate_reverse(list_b, control);
-		if (check_sorted_list(*list_b) == 1)
-		 	return ; */
-	}
 }
 
-void	quick_number(t_list **list_a, t_list **list_b, int size)
+void	push_number(t_list **list_a, t_list **list_b, int size)
 {
 	int		*original;
 	int		*sorted;
