@@ -17,17 +17,23 @@ int	ft_check_arg(char *str)
 	int		i;
 
 	i = 0;
+	if (str[0] == '\0')
+		return(0);
 	while (str[i])
 	{
 		if (str[i] == ' ')
 			i++;
 		if (str[i] == '-' || str[i] == '+')
 		{
+			if (!(str[i - 1] == ' '))
+				return (0);
 			if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
 				return (0);
 		}
 		else if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
+/*		else if (!(str[i + 1] >= '0' && str[i + 1] <= '9') && !(str[i + 1] == ' '))
+			return (0);*/
 		i++;
 	}
 	return (1);

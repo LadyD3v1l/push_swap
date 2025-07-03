@@ -59,7 +59,7 @@ int	main(int ac, char **av)
 	i = 1;
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || ac == 2)
+	if (ac == 1)
 		return (0);
 	while (i < ac)
 	{
