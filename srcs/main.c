@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
+void	print_local(t_list *lst)
+{
+	while (lst)
+	{
+		printf("num: %i ", lst->num);
+		printf("local_a: %i ", lst->local_a);
+		printf("local_b: %i ", lst->local_b);
+		printf("total_cust: %i\n", lst->total_cust);
+		lst = lst->next;
+	}
+}
+
 void	push_swap_upper(t_list **list_a, t_list **list_b, int size)
 {
 	t_list	*node;
@@ -72,7 +84,7 @@ int	main(int ac, char **av)
 	if (check_iden(a) == 0)
 		ft_finish(&a);
 	if (check_sorted(a) == 0)
-		return (0);
+		ft_clear(&a);
 	push_swap(&a, &b);
 	ft_lstclear(&a);
 	ft_lstclear(&b);

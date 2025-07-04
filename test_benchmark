@@ -1,0 +1,13 @@
+Total=0;
+Flag=0
+for i in {1..500}
+do
+	ARG=$(shuf -i 1-500 | xargs)
+	line_count=$(./push_swap $ARG | wc -l)
+	Total=$(($Total + $line_count))
+	if [ "$line_count" -gt 5500 ]; then
+		echo $line_count
+	fi
+done
+echo Media $(($Total/500))
+

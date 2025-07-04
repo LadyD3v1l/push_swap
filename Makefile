@@ -21,7 +21,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-		@echo "$(BG_PURPLE)$(BLACK)[CRIATE] PUSH_SWAP *-* $(EXEC)$(RESET)"
+		@echo "$(BG_PURPLE)$(BLACK)[CREATE] PUSH_SWAP *-* $(EXEC)$(RESET)"
 		@$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
@@ -37,14 +37,14 @@ clean:
 
 fclean: clean
 		@echo "$(CINZA)$(BLACK)=======$(RESET)"
-		@echo "$(CINZA)$(BLACK)| * * |$(RESET)"
+		@echo "$(CINZA)$(BLACK)| *.* |$(RESET)"
 		@echo "$(CINZA)$(BLACK)|* *  |$(RESET)"
 		@echo "$(CINZA)$(BLACK)| * * |$(RESET)"
+		@echo "$(CINZA)$(BLACK)|  *.*|$(RESET)"
 		@echo "$(CINZA)$(BLACK)|  * *|$(RESET)"
-		@echo "$(CINZA)$(BLACK)|  * *|$(RESET)"
-		@echo "$(CINZA)$(BLACK)| * * |$(RESET)"
+		@echo "$(CINZA)$(BLACK)| *.* |$(RESET)"
 		@echo "$(CINZA)$(BLACK)|* *  |$(RESET)"
-		@echo "Andou, andou e no lixo parouu! 🗑️"
+		@echo " 🗑️  Andou, andou e no lixo parouu!"
 		@rm -f $(EXEC)
 
 re: fclean all

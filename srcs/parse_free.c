@@ -39,3 +39,9 @@ void	ft_finish(t_list **list)
 	write (2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
+
+void	ft_clear(t_list **list)
+{
+	ft_lstclear(list);
+	exit(EXIT_FAILURE);
+}
