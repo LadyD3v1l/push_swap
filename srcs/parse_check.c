@@ -14,7 +14,7 @@
 
 int	ft_check_arg(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (str[0] == '\0')
@@ -25,15 +25,16 @@ int	ft_check_arg(char *str)
 			i++;
 		if (str[i] == '-' || str[i] == '+')
 		{
+			if (i > 0 && str[i - 1] != ' ')
+				return (0);
 			i++;
-			if (!(str[i - 1] == ' '))
-				return (0);
-			if (!(str[i + 2] >= '0' && str[i + 2] <= '9'))
-				return (0);
 		}
-		else if (!(str[i] >= '0' && str[i] <= '9'))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
-		i++;
+		while (str[i] >= '0' && str[i] <= '9')
+			i++;
+		if (str[i] != ' ' && str[i] != '\0')
+			return (0);
 	}
 	return (1);
 }
