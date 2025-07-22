@@ -28,8 +28,6 @@ typedef struct s_list
 	struct s_list	*prev;		//elemento anterior
 }					t_list;
 
-void	print_local(t_list *lst);
-
 //big_cases.c
 void	rotate_list(t_list **list_a, t_list **list_b, int *posi_a, int *posi_b);
 void	reverse_list(t_list **list_a, t_list **list_b, int *posi_a, int *pos_b);
